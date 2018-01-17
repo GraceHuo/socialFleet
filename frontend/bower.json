@@ -1,0 +1,20 @@
+{
+  "name": "frontend",
+  "description": "font-end of social fleet",
+  "main": "index.js",
+  "authors": [
+    "Grace Huo"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/GraceHuo/socialFleet",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.8"
+  }
+}
