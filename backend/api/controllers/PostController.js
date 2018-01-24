@@ -10,6 +10,7 @@ module.exports = {
   tweet: function( req, res ) {
 
     User.findOne(req.userId, function( error, user ) {
+      var message =  req.body.message;
       var T = new Twit( {
         consumer_key       : config.TWITTER_KEY,
         consumer_secret    : config.TWITTER_SECRET,
@@ -18,8 +19,9 @@ module.exports = {
         timeout_ms         : 60 * 1000  // optional HTTP request timeout to apply to all requests.
       } );
 
-      T.post( 'statuses/update', { status: 'hello world 2!!' }, function( err, data, response ) {
+      T.post( 'statuses/update', { status: message }, function( err, data, response ) {
         console.log( data, err );
+        res.status(200).end();
       } )
     });
 
