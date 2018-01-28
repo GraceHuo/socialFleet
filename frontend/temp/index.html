@@ -32,7 +32,7 @@
       <button class="btn btn-primary pull-right" ng-disabled="!date" ng-click="tweet()">Tweet</button>
     </div>
 
-    <div ng-include="'myposts.html'"></div>
+    <div ui-view></div>
   </div>
 </div>
 
@@ -40,6 +40,7 @@
 <script src="vendor/angular.js"></script>
 <script src="vendor/satellizer.js"></script>
 <script src="vendor/ui-bootstrap-tpls.js"></script>
+<script src="vendor/angular-ui-router.js"></script>
 <!-- endinject -->
 
 <!-- inject:js -->

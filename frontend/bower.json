@@ -17,6 +17,7 @@
   "dependencies": {
     "angular": "^1.6.8",
     "satellizer": "0.8.7",
-    "angular-bootstrap": "^2.5.0"
+    "angular-bootstrap": "^2.5.0",
+    "angular-ui-router": "1.0.5"
   }
 }
