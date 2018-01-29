@@ -9,7 +9,8 @@ module.exports = {
 
   attributes: {
     message: 'string',
-    datetime: 'datetime',
+    scheduledfor: 'datetime',
+    isPosted: 'boolean',
     owner: {
       model: 'user'
     }

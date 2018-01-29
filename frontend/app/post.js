@@ -36,8 +36,8 @@ angular.module( 'app' )
     function getPost() {
       $http.get( '/api/post/' + id ).then( function( post ) {
         $scope.message = post.data.message;
-        $scope.date    = new Date( post.data.datetime );
-        $scope.date    = new Date( post.data.datetime );
+        $scope.date    = new Date( post.data.scheduledfor );
+        $scope.date    = new Date( post.data.scheduledfor );
       } );
     }
 
@@ -49,10 +49,11 @@ angular.module( 'app' )
         $scope.time.getHours(),
         $scope.time.getMinutes() );
       $http.post( './api/post/tweet', {
-        message : $scope.message,
-        datetime: datetime
+        message     : $scope.message,
+        scheduledfor: datetime
       } ).then( function() {
         toastr.success( "New Post Created!" );
+        $state.go( 'posts' );
       } )
     }
 
@@ -64,10 +65,11 @@ angular.module( 'app' )
         $scope.time.getHours(),
         $scope.time.getMinutes() );
       $http.post( './api/post/update/' + id, {
-        message : $scope.message,
-        datetime: datetime
+        message     : $scope.message,
+        scheduledfor: datetime
       } ).then( function() {
         toastr.success( "Post Edited!" );
+        $state.go( 'posts' );
       } )
     }
 
@@ -75,11 +77,11 @@ angular.module( 'app' )
       return id;
     }
 
-    function deletePost(  ) {
-      $http.post( './api/post/destroy/' + id)
+    function deletePost() {
+      $http.post( './api/post/destroy/' + id )
         .then( function() {
-        toastr.info( "Post Deleted!" );
-        $state.go('posts');
-      } )
+          toastr.info( "Post Deleted!" );
+          $state.go( 'posts' );
+        } )
     }
   } );
