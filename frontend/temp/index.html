@@ -2,36 +2,28 @@
 <html ng-app="app">
 <head>
   <title>Social Fleet</title>
-  <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+  <base href="/">
+  <!-- vendorInject:css -->
+  <link rel="stylesheet" href="vendor/angular-toastr.css">
+  <!-- endinject -->
   <!-- inject:css -->
   <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="custom.css">
   <!-- endinject -->
 </head>
 <body ng-controller="Login">
 
 <nav class="navbar navbar-default">
-  <button class="btn btn-link navbar-button pull-right" ng-hide="isAuthenticated()" ng-click="login()">Login</button>
-  <button class="btn btn-link navbar-button pull-right" ng-show="isAuthenticated()" ng-click="logout()">Logout</button>
+  <div class="container">
+    <button class="btn btn-default navbar-button" ui-sref="posts">My Posts</button>
+    <button class="btn btn-primary navbar-button" ui-sref="post">New Post</button>
+    <button class="btn btn-link navbar-button pull-right" ng-hide="isAuthenticated()" ng-click="login()">Login</button>
+    <button class="btn btn-link navbar-button pull-right" ng-show="isAuthenticated()" ng-click="logout()">Logout</button>
+  </div>
 </nav>
 
 <div class="container">
   <div class="col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2">
-    <div ng-controller="Scheduler" class="well clearfix">
-      <div class="form-group">
-        <textarea rows="4" class="form-control" placeholder="tweet message" ng-model="message"></textarea>
-      </div>
-      <p class="input-group">
-        <input class="form-control" ng-model="date" uib-datepicker-popup is-open="opened" datepicker-options="dateOptions">
-        <span class="input-group-btn">
-        <button class="btn btn default" ng-click="open($event)">
-          <i class="glyphicon glyphicon-calendar"></i>
-        </button>
-      </span>
-      </p>
-      <div uib-timepicker ng-model="time"></div>
-      <button class="btn btn-primary pull-right" ng-disabled="!date" ng-click="tweet()">Tweet</button>
-    </div>
-
     <div ui-view></div>
   </div>
 </div>
@@ -41,13 +33,15 @@
 <script src="vendor/satellizer.js"></script>
 <script src="vendor/ui-bootstrap-tpls.js"></script>
 <script src="vendor/angular-ui-router.js"></script>
+<script src="vendor/angular-toastr.tpls.js"></script>
+<script src="vendor/angular-animate.js"></script>
 <!-- endinject -->
 
 <!-- inject:js -->
 <script src="app.js"></script>
 <script src="login.js"></script>
 <script src="myposts.js"></script>
-<script src="scheduler.js"></script>
+<script src="post.js"></script>
 <!-- endinject -->
 </body>
 </html>

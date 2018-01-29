@@ -46,7 +46,10 @@ module.exports.policies = {
 
     PostController: {
 		  tweet: ['jwtAuth'],
-      myPosts: ['jwtAuth']
+      myPosts: ['jwtAuth'],
+      findOne: ['jwtAuth', 'ownResource'],
+      update: ['jwtAuth', 'ownResource'],
+      destroy: ['jwtAuth', 'ownResource']
     }
 
 		// For the action `nurture`, apply the 'isRabbitMother' policy
